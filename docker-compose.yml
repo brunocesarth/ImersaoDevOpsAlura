@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  app:
+    # Constrói a imagem a partir do Dockerfile na mesma pasta
+    build: .
+    container_name: api
+    # Mapeia a porta 8000 do host para a porta 8000 do container
+    ports:
+      - "8000:8000"
+      
+    # Monta o diretório atual no diretório /app do container
+    # Isso permite o live-reloading e a persistência do banco de dados SQLite
+    volumes:
+      - .:/app
+      
+    # O comando para iniciar a aplicação já está definido no Dockerfile,
+    # então não é necessário especificá-lo aqui.
+
+
